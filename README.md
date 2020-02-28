@@ -21,16 +21,7 @@ necessary for heroku to know what to install to run out app. But! if you deploy 
 node_modules folder to heroku it won't build, heroku uses the json files to reconstruct
 our node_modules.
 
-my project structure looks like:
 
-`project/
-    node_modules/
-    app.js
-    index.html
-    package-lock.json
-    package.json
-    README.md
-`
     
 anytime in the future if we need another package, we should be able to run
 `npm install package_name`

@@ -13,10 +13,3 @@
     margin-right: 150px;
     margin-left: 150px;
 }
-
-/* keep the footer at the bottom */
-footer {
- position: absolute;
- bottom: 0;
- width: 100%;
-}

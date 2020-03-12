@@ -16,8 +16,30 @@ app.get("/", function(req, res){
     res.render("home.ejs");
 });
 
+// route to base domain
+app.get("/home", function(req, res){
+    res.render("home.ejs");
+});
+
+ 
+var dummyUsernamePassword = [];
+
 app.get("/login", function(req, res){
-    res.render("login.ejs");
+    res.render("login.ejs", { dummyData : dummyUsernamePassword } );
+});
+
+// handle the post request from the login page
+app.post("/loginAttempt", function(req, res){
+    // the name attribute in the html input tags defines the names of these variables
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    
+    dummyUsernamePassword.push({ "username" : username, "password" : password });
+    console.log(username);
+    console.log(password);
+    
+    res.redirect("/login");
 });
 
 // anything that hasn't matched a defined route is caught here

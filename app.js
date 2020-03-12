@@ -24,7 +24,10 @@ app.get("/home", function(req, res){
  
 var dummyUsernamePassword = [];
 
+// handle the login page
 app.get("/login", function(req, res){
+    
+    // this is an example of how you can send data down to the client with the ejs files
     res.render("login.ejs", { dummyData : dummyUsernamePassword } );
 });
 

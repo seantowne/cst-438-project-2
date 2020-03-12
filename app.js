@@ -45,6 +45,11 @@ app.post("/loginAttempt", function(req, res){
     res.redirect("/login");
 });
 
+app.get("/clearDummyData", function(req, res){
+    dummyUsernamePassword = [];
+    res.redirect("/login");
+});
+
 // anything that hasn't matched a defined route is caught here
 app.get("/*", function(req, res){
     res.render("error.ejs");

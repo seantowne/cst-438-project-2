@@ -1,3 +1,4 @@
+/* basic styling for the error page */
 .error {
     text-align: center;
     color: red;
@@ -5,9 +6,17 @@
     margin: auto;
 }
 
+/* puts the login form in the middle of the page */
 #loginForm{
     margin-top: 100px;
     margin-bottom: 100px;
     margin-right: 150px;
     margin-left: 150px;
+}
+
+/* keep the footer at the bottom */
+footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
 }

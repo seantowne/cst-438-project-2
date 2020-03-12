@@ -1,0 +1,13 @@
+.error {
+    text-align: center;
+    color: red;
+    display: block;
+    margin: auto;
+}
+
+#loginForm{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
+}

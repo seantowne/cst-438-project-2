@@ -6,7 +6,8 @@ var app = express();
 app.set('view engine', 'ejs');
 
 // Tells node to look in public/ for styles
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+console.log(__dirname);
 
 // makes data that comes to the server from the client a json object
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,29 +25,7 @@ app.get("/home", function(req, res){
 
 // Tells node to look in ./routes/login for /login/*
 app.use('/login', require('./routes/login'));
-/*
-// handle the login page
-app.get("/login", function(req, res){
-    
-    // this is an example of how you can send data down to the client with the ejs files
-    res.render("login.ejs", { dummyData : dummyUsernamePassword } );
-});
-
-
-// handle the post request from the login page
-app.post("/login", function(req, res){
-    // the name attribute in the html input tags defines the names of these variables
-    var username = req.body.username;
-    var password = req.body.password;
-    
-    
-    dummyUsernamePassword.push({ "username" : username, "password" : password });
-    console.log(username);
-    console.log(password);
-    
-    res.redirect("/login");
-});
-*/
+app.use('/createAccount', require('./routes/createAccount'));
 
 
 // anything that hasn't matched a defined route is caught here

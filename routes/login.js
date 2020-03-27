@@ -3,6 +3,9 @@
 var express = require('express');
 var router = express.Router();
 
+//router.use(express.static('../public'));
+
+
 router.get('/', function(req, res) {
     console.log("login GET");
     res.render('login.ejs');
@@ -14,9 +17,19 @@ router.get('/', function(req, res) {
 function validate_login(username, password){
     return Math.floor(Math.random() * 2) == 0;
 }
+/*
+ditch the login/attempt route, make the get /login serve the login page,
+and make the post login handle the login functionality
 
-router.post('/attempt', function(req, res) {
-    console.log("login/attempt POST");
+make get /createaccount serve the create account page
+make post /createaccount handle the actual create account
+
+you'll need another router for the createaccount page
+
+
+*/
+router.post('/', function(req, res) {
+    console.log("login POST");
     var username = req.body.username;
     var password = req.body.password;
     
@@ -27,29 +40,5 @@ router.post('/attempt', function(req, res) {
     );
 });
 
-
-function validate_new_user(username, password){
-    return Math.floor(Math.random() * 2) == 0;
-}
-
-router.get('/create', function(req, res){
-    console.log('login/create GET');
-    res.render('createAccount.ejs');
-});
-
-router.post('/create/attempt', function(req, res){
-    console.log("login/create/attempt POST");
-    var fullname = req.body.fullname;
-    var username = req.body.username;
-    var password = req.body.password;
-    var passconf = req.body.passwordConfirm;
-    console.log(username);
-    console.log(password);
-    console.log(fullname);
-    console.log(passconf);
-    res.json(
-        { success: validate_new_user(username, password) }  
-    );
-});
 
 module.exports = router;

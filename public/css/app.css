@@ -10,6 +10,7 @@
 .someonePlzMakeThisSexy{
     background-color: #e8f6fa;
     width: 400px;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -21,3 +22,6 @@
     border-width: thin;
 }
 
+.sean{
+    color: green;
+}

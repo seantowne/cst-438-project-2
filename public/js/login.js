@@ -7,7 +7,7 @@ $(document).ready(function() {
         var password = $("#passwordInput").val();
         $.ajax({
            type: "POST",
-           url: "/login/attempt",
+           url: "/login",
            datatype: "json",
            data: { "username":username, "password":password, },
            success: function(data, status){

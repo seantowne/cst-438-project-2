@@ -5,6 +5,12 @@ $(document).ready(function() {
         event.preventDefault();
         var username = $("#usernameInput").val();
         var password = $("#passwordInput").val();
+        
+        if ( username.length == 0 || password.length == 0 ){
+            $("#loginSuccessFeedback").html("Please Fill All Fields");
+            $("#loginSuccessFeedback").css("color", "red");
+            return;
+        }
         $.ajax({
            type: "POST",
            url: "/login",

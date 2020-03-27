@@ -5,65 +5,13 @@
         
         
         <% if (data) { %>
-          <h2><%= data.Search[0].Title %></h2>
+          <% data.Search.forEach(function(movie, index, array){ %>
+            <%- include('templates/movieCard.ejs', {poster:data.Search[index].Poster, title: data.Search[index].Title, year: data.Search[index].Year }) -%>
+          <% }); %>
         <% } %>
-        
-        
-          <!-- First Photo Grid-->
-          <div class="w3-row-padding w3-padding-16 w3-center" id="movies">
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie1" style="width:100%">
-              <h3>Movie 1</h3>
-              <p>Description of Movie 1</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie2" style="width:100%">
-              <h3>Movie 2</h3>
-              <p>Description of Movie 2</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie3" style="width:100%">
-              <h3>Movie 3</h3>
-              <p>Description of Movie 3</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie4" style="width:100%">
-              <h3>Movie 4</h3>
-              <p>Description of Movie 4</p>
-            </div>
-          </div>
           
-          <!-- Second Photo Grid-->
-          <div class="w3-row-padding w3-padding-16 w3-center">
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie5" style="width:100%">
-              <h3>Movie 5</h3>
-              <p>Description of Movie 5</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie6" style="width:100%">
-              <h3>Movie 6</h3>
-              <p>Description of Movie 6</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie7" style="width:100%">
-              <h3>Movie 7</h3>
-              <p>Description of Movie 7</p>
-            </div>
-            
-            <div class="w3-quarter">
-              <img src="/img/movie.jpg" alt="Movie8" style="width:100%">
-              <h3>Movie 8</h3>
-              <p>Description of Movie 8</p>
-            </div>
-          </div>
+        
+          
         
           <!-- Pagination -->
           <div class="w3-center w3-padding-32">

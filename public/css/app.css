@@ -23,6 +23,9 @@
     border-width: thin;
 }
 
+.movieCardHolder{
+    display: flex;
+}
 .movieCard{
-    
+    width: 30%;
 }

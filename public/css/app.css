@@ -8,7 +8,15 @@
 
 /* puts the login form in the middle of the page */
 #loginForm{
-    width: 300px;
+    background-color: #e8f6fa;
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     display: block;
     margin: auto;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: thin;
 }

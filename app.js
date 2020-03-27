@@ -21,9 +21,10 @@ app.get("/home", function(req, res){
     res.render("home.ejs");
 });
 
- 
-var dummyUsernamePassword = [];
 
+// Tells node to look in ./routes/login for /login/*
+app.use('/login', require('./routes/login'));
+/*
 // handle the login page
 app.get("/login", function(req, res){
     
@@ -31,8 +32,9 @@ app.get("/login", function(req, res){
     res.render("login.ejs", { dummyData : dummyUsernamePassword } );
 });
 
+
 // handle the post request from the login page
-app.post("/loginAttempt", function(req, res){
+app.post("/login", function(req, res){
     // the name attribute in the html input tags defines the names of these variables
     var username = req.body.username;
     var password = req.body.password;
@@ -44,11 +46,8 @@ app.post("/loginAttempt", function(req, res){
     
     res.redirect("/login");
 });
+*/
 
-app.get("/clearDummyData", function(req, res){
-    dummyUsernamePassword = [];
-    res.redirect("/login");
-});
 
 // anything that hasn't matched a defined route is caught here
 app.get("/*", function(req, res){

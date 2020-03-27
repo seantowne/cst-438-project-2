@@ -1,0 +1,29 @@
+<%- include('templates/header.ejs') -%>
+
+    <h1 style="text-align: center;margin-top: 80px;">Create Account</h1>
+    
+    <form id="createAccountForm" class="someonePlzMakeThisSexy">
+        <div class="form-group">
+            <label for="fullnameInput">Full Name</label>
+            <input type="text" class="form-control" id="fullnameInput" aria-describedby="emailHelp" placeholder="Full Name" name="fullname">
+        </div>
+        <div class="form-group">
+            <label for="usernnameInput">Username</label>
+            <input type="text" class="form-control" id="usernameInput" aria-describedby="emailHelp" placeholder="Enter username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="passwordConfirm">Password</label>
+            <input type="password" class="form-control" id="passwordConfirm" placeholder="Password" name="passwordConfirm">
+        </div>
+        <button id="createAccountButton" type="submit" class="form-group btn btn-primary">Register</button>
+        <span id="createAccountSuccessFeedback"></span>
+        
+    </form>
+    
+    <script type="text/javascript" src="js/createAccount.js"></script>
+     
+<%- include('templates/footer.ejs') -%>

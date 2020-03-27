@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 
+
 // set the template engine to ejs
 app.set('view engine', 'ejs');
 
@@ -14,12 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // route to base domain
 app.get("/", function(req, res){
-    res.render("index.ejs");
+    res.render("index.ejs", { data : false });
 });
 
 // route to base domain
 app.get("/home", function(req, res){
-    res.render("index.ejs");
+    res.render("index.ejs", { data : false });
 });
 
 

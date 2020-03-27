@@ -29,4 +29,6 @@
 }
 .movieCard{
     width: 25%;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }

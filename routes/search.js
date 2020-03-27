@@ -22,30 +22,31 @@ function get_omdb_data_from_search_term(searchTerm){
     console.log("Requesting OMDB s=" + searchTerm);
     console.log("url: " + url);
     
-    axios.get(url)
+    return axios.get(url)
         .then(function (response) {
-            // handle success
-            //console.log(response);
-            return true;
+            return response.data;
         })
         .catch(function (error) {
-            // handle error
-            //console.log(error);
-            return false;
+            console.log("Error Fetching Data from OMDB");
+            return error;
         })
         .finally(function () {
             // always executed
     });
 }
 
-/* The handler for the /results route */
+/* The handler for the /search route */
 router.get('/', function(req, res){
     console.log('search GET');
     console.log(req.query.query);
 	var query = req.query.query;
-	var success = get_omdb_data_from_search_term(query);
-	res.json({
-	    "success" : success
+	
+	// This function is a promise, promises are wierd, thats
+	// why there is the .then() thing. Its the only way to get
+	// the response data out of axios.
+	get_omdb_data_from_search_term(query).then(function(data){
+	    console.log(data);
+	    res.render("index.ejs", { data : data });
 	});
 });
 

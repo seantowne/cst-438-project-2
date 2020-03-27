@@ -22,6 +22,10 @@ app.get("/home", function(req, res){
     res.render("home.ejs");
 });
 
+app.get('/jose', function(req, res){
+    res.render("index.ejs");
+});
+
 
 // Tells node to look in ./routes/login for /login/*
 app.use('/login', require('./routes/login'));

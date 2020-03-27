@@ -10,6 +10,12 @@ $(document).ready(function() {
         var password = $("#passwordInput").val();
         var passconf = $("#passwordConfirm").val();
         
+        if ( fullname.length == 0 || username.length == 0 || password.length == 0 || passconf.length == 0 ){
+            $("#createAccountSuccessFeedback").html("Please Fill All Fields");
+            $("#createAccountSuccessFeedback").css("color", "red");
+            return;
+        }
+        
         if ( password != passconf ){
             $("#createAccountSuccessFeedback").html("Passwords Do Not Match");
             $("#createAccountSuccessFeedback").css("color", "red");

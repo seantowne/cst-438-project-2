@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 function validate_login(username, password){
     return (Math.floor(Math.random() * 2) == 0) ? true : false;
 }
-router.post('/', function(req, res) {
+router.post('/attempt', function(req, res) {
     console.log("login POST");
     var username = req.body.username;
     var password = req.body.password;

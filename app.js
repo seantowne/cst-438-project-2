@@ -23,9 +23,10 @@ app.get("/home", function(req, res){
 });
 
 
-// Tells node to look in ./routes/login for /login/*
+// Tells node to look in ./routes/login for /login/* etc..
 app.use('/login', require('./routes/login'));
 app.use('/createAccount', require('./routes/createAccount'));
+app.use('/search', require('./routes/search'));
 
 
 // anything that hasn't matched a defined route is caught here

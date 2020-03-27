@@ -17,17 +17,9 @@ router.get('/', function(req, res) {
 function validate_login(username, password){
     return Math.floor(Math.random() * 2) == 0;
 }
-/*
-ditch the login/attempt route, make the get /login serve the login page,
-and make the post login handle the login functionality
-
-make get /createaccount serve the create account page
-make post /createaccount handle the actual create account
-
-you'll need another router for the createaccount page
 
 
-*/
+
 router.post('/', function(req, res) {
     console.log("login POST");
     var username = req.body.username;
@@ -39,6 +31,7 @@ router.post('/', function(req, res) {
         { success:validate_login(username, password) }
     );
 });
+
 
 
 module.exports = router;

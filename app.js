@@ -14,15 +14,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // route to base domain
 app.get("/", function(req, res){
-    res.render("home.ejs");
+    res.render("index.ejs");
 });
 
 // route to base domain
 app.get("/home", function(req, res){
-    res.render("home.ejs");
-});
-
-app.get('/jose', function(req, res){
     res.render("index.ejs");
 });
 

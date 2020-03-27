@@ -11,14 +11,14 @@ $(document).ready(function() {
            datatype: "json",
            data: { "username":username, "password":password, },
            success: function(data, status){
-               alert(data.success);
+               //alert(data.success);
                 if ( data.success ){
                     $("#loginSuccessFeedback").html("You have been logged in!");
-                    $("#loginSuccessFeedback").css("color", "text-success");
+                    $("#loginSuccessFeedback").css("color", "green");
                 } 
                 else{
                     $("#loginSuccessFeedback").html("Username doesn't exist or bad password :/");
-                    $("#loginSuccessFeedback").css("color", "text-danger");
+                    $("#loginSuccessFeedback").css("color", "red");
                 }
            },
            error: function(){

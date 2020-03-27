@@ -1,4 +1,4 @@
-// login.js (server side)
+// createAccount.js (server side)
 
 var express = require('express');
 var router = express.Router();

@@ -25,7 +25,8 @@
 
 .movieCardHolder{
     display: flex;
+    flex-wrap: wrap;
 }
 .movieCard{
-    width: 30%;
+    width: 25%;
 }

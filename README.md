@@ -38,3 +38,5 @@ then create a new heroku app, and in the setting there should be a line like
 `heroku git:add url-to-project-or-something`
 
 after you add the project you should be able to push and see it live on heroku.
+
+Sean

@@ -1,7 +1,25 @@
-var express = require("express");
+const express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 const axios = require('axios');
+const dotenv = require('dotenv'); // safe hadlying of db access
+const mongoose = require("mongoose"); // used for mongodb
+
+// Import routes here:
+const authenticateRoute = require('./routes/authenticate');
+const postRoute = require('./routes/posts');
+
+// route to base domain
+app.get("/home", function(req, res){
+    res.render("home.ejs");
+});
+
+// helps hide information that should remain private
+dotenv.config();
+// Connect to DB
+mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, () => 
+    console.log('Connected to db...')
+);
 
 // set the template engine to ejs
 app.set('view engine', 'ejs');
@@ -10,6 +28,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 console.log(__dirname);
 
+// Middleware
+// accept json
+app.use(bodyParser.json());
 // makes data that comes to the server from the client a json object
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -51,17 +72,21 @@ app.get("/home", function(req, res){
 });
 
 
+
 // Tells node to look in ./routes/login for /login/* etc..
 app.use('/login', require('./routes/login'));
 app.use('/createAccount', require('./routes/createAccount'));
 app.use('/search', require('./routes/search'));
 app.use('/cart', require('./routes/cart'));
-
+// Route Middleware here:
+app.use('/api/user', authenticateRoute);
+app.use('/api/posts', postRoute);
 
 // anything that hasn't matched a defined route is caught here
 app.get("/*", function(req, res){
     res.render("error.ejs");
 });
+
 
 // listens for http requests
 // port 3000 is for C9, port 8080 is for Heroku

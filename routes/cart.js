@@ -34,11 +34,15 @@ function get_movie_from_imdbID(imdbID){
     });
 }
 
-
+// playing around
+var imdbID_list = []
 router.post('/add', function(req, res){
    console.log('cart/add POST');
    
    var imdbID_to_be_added_to_cart = req.body.imdbID;
+   
+   // playing around
+   imdbID_list.push(imdbID_to_be_added_to_cart);
    
    console.log(imdbID_to_be_added_to_cart);
    

@@ -4,15 +4,7 @@ var express = require('express');
 var router = express.Router();
 const axios = require('axios');
 
-/*
-request(url, function(error, response, dataStream){
-		if (!error && response.statusCode == 200){
-			var data = JSON.parse(dataStream);
-			console.log(data);
-			//res.render('results', {data: data});
-		}
-	});
-*/
+
 
 
 function get_omdb_data_from_search_term(searchTerm){

@@ -2,24 +2,15 @@ const express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 const axios = require('axios');
-const dotenv = require('dotenv'); // safe hadlying of db access
-const mongoose = require("mongoose"); // used for mongodb
 
-// Import routes here:
-const authenticateRoute = require('./routes/authenticate');
-const postRoute = require('./routes/posts');
+
+
 
 // route to base domain
 app.get("/home", function(req, res){
     res.render("home.ejs");
 });
 
-// helps hide information that should remain private
-dotenv.config();
-// Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, () => 
-    console.log('Connected to db...')
-);
 
 // set the template engine to ejs
 app.set('view engine', 'ejs');
@@ -78,9 +69,7 @@ app.use('/login', require('./routes/login'));
 app.use('/createAccount', require('./routes/createAccount'));
 app.use('/search', require('./routes/search'));
 app.use('/cart', require('./routes/cart'));
-// Route Middleware here:
-app.use('/api/user', authenticateRoute);
-app.use('/api/posts', postRoute);
+
 
 // anything that hasn't matched a defined route is caught here
 app.get("/*", function(req, res){

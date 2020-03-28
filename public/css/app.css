@@ -29,6 +29,7 @@
 }
 .movieCard{
     width: 25%;
+    height: auto;
     margin-right: 20px;
     margin-bottom: 20px;
 }

@@ -1,8 +1,11 @@
 <div class="card movieCard" style="width: 18rem;">
-    <img class="card-img-top" src="<%= poster %>" alt="Image Not Available" onerror=this.src="img/movie.jpg">
+    <img class="card-img-top" src="<%= movie.Poster %>" alt="Image Not Available" onerror=this.src="img/movie.jpg">
     <div class="card-body">
-        <h5 class="card-title"><%= title %></h5>
-        <p class="card-text"><%= year %></p>
+        <h5 class="card-title"><%= movie.Title %></h5>
+        <p class="card-text"><%= movie.Year %></p>
         <button type="button" class="btn btn-secondary">Add To Cart</button>
     </div>
+    <script>
+        
+    </script>
 </div>

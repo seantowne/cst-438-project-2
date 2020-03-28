@@ -40,6 +40,7 @@ router.get('/', function(req, res){
     console.log('search GET');
     console.log(req.query.query);
 	var query = req.query.query;
+	query = query.replace(/ /g, '%20');
 	
 	// This function is a promise, promises are wierd, thats
 	// why there is the .then() thing. Its the only way to get

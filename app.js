@@ -55,6 +55,7 @@ app.get("/home", function(req, res){
 app.use('/login', require('./routes/login'));
 app.use('/createAccount', require('./routes/createAccount'));
 app.use('/search', require('./routes/search'));
+app.use('/cart', require('./routes/cart'));
 
 
 // anything that hasn't matched a defined route is caught here

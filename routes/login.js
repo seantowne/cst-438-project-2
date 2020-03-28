@@ -31,8 +31,7 @@ router.post('/', function(req, res) {
         { success:validate_login(username, password) }
     );
 
-
-    //res.send('Login successful');});
+});
 
 
 

@@ -4,7 +4,8 @@
         <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
         
         <div class="movieCardHolder">
-          <% if ( (typeof data != "undefined") && data.Response) { %>
+          <% if ( (typeof data != "undefined") && (data.Response != 'False' ) ) { %>
+            <% console.log(data.Response) %>
             <% data.Search.forEach(function(movie, index, array){ %>
               <%- include('templates/movieCard.ejs', {poster:data.Search[index].Poster, title: data.Search[index].Title, year: data.Search[index].Year }) -%>
             <% }); %>

@@ -24,7 +24,7 @@ $(document).ready(function() {
         
         $.ajax({
            type: "POST",
-           url: "/api/user/createAccount",
+           url: "/createAccount",
            datatype: "json",
            data: { 
                "fullname":fullname,

@@ -1,40 +1,31 @@
-const router = require('express').Router();
-const User = require('../model/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const {registrationValidation} = require('../validation');
+// createAccount.js (server side)
 
-router.post('/', async (req, res) => {
-    // before user is sent, validate the data
-    const { error } = registrationValidation(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+var express = require('express');
+var router = express.Router();
 
-    // check for repeated emails
-    //const emailExists = await User.findOne({email: req.body.email});
-    //if (emailExists) return res.status(400).send("Email already exists");
 
-    // check for repeated username
-    const username = await User.findOne({username: req.body.username});
-    if (username) return res.status(400).send("Username already exists");
+function validate_new_user(fullname, username, password){
+    return Math.floor(Math.random() * 2) == 0;
+}
 
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    // add a new user
-    const user = new User({
-        fullname: req.body.fullname,
-        username: req.body.username,
-        //email: req.body.email,
-        password: hashedPassword
-    });
-    try{
-        let savedUser = await user.save();
-        res.send({user: user._id});
-    } catch(err){
-        res.status(400).send(err);
-    }
+router.get('/', function(req, res){
+    console.log('createAccount GET');
+    res.render('createAccount.ejs');
 });
 
+router.post('/', function(req, res){
+    console.log("createAccount POST");
+    var fullname = req.body.fullname;
+    var username = req.body.username;
+    var password = req.body.password;
+    var passconf = req.body.passconf;
+    console.log(fullname);
+    console.log(username);
+    console.log(password);
+    console.log(passconf);
+    res.json(
+        { success: validate_new_user(fullname, username, password) }  
+    );
+});
 
 module.exports = router;

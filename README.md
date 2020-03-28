@@ -1,5 +1,15 @@
 # CST 438 Project 2
 
+## Find a movie's plot
+
+1. On the main page, type in a movie name (ex: Tombstone) and click on `GO`
+2. Find the movie and click `Details`
+3. Read about the plot of the movie
+
+
+
+
+
 ## Hey guys..
 
 #### This is a super boiler plate node/express app, but it works on heroku, so thats a start!

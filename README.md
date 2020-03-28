@@ -40,3 +40,5 @@ then create a new heroku app, and in the setting there should be a line like
 after you add the project you should be able to push and see it live on heroku.
 
 Sean
+
+References: https://www.w3schools.com/css/css_rwd_templates.asp

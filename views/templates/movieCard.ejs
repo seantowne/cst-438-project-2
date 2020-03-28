@@ -3,7 +3,7 @@
     <div class="card-body">
         <h5 class="card-title"><%= movie.Title %></h5>
         <p class="card-text"><%= movie.Year %></p>
-        <button type="button" class="btn btn-secondary">Add To Cart</button>
+        <form action="cart/add" method="post"><button type="submit" class="btn btn-secondary" name="imdbID" value="<%= movie.imdbID %>">Add To Cart</button></form>
     </div>
     <script>
         

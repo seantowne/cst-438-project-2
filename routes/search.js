@@ -46,7 +46,6 @@ router.get('/', function(req, res){
 	// why there is the .then() thing. Its the only way to get
 	// the response data out of axios.
 	get_omdb_data_from_search_term(query).then(function(data){
-	    console.log(data);
 	    res.render("index.ejs", { data : data });
 	});
 });

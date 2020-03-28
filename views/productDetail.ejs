@@ -1,0 +1,15 @@
+<%- include('templates/header.ejs') -%>
+
+    <div class="movieCardHolder">
+        <div class="card productDetails" style="width: 18rem;">
+            <img class="card-img-top" src="<%= movie.Poster %>" alt="Image Not Available" onerror=this.src="img/movie.jpg">
+            <div class="card-body">
+                <h5 class="card-title"><%= movie.Title %></h5>
+                <p class="card-text"><%= movie.Year %></p>
+                <p class="card-text"><%= movie.Plot %></p>
+                
+            </div>
+        </div>
+    </div>
+    
+<%- include('templates/footer.ejs') -%>

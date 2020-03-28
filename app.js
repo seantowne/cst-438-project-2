@@ -69,6 +69,7 @@ app.use('/login', require('./routes/login'));
 app.use('/createAccount', require('./routes/createAccount'));
 app.use('/search', require('./routes/search'));
 app.use('/cart', require('./routes/cart'));
+app.use('/details', require('./routes/details'));
 
 
 // anything that hasn't matched a defined route is caught here

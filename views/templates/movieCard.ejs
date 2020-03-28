@@ -4,6 +4,7 @@
         <h5 class="card-title"><%= movie.Title %></h5>
         <p class="card-text"><%= movie.Year %></p>
         <form action="cart/add" method="post"><button type="submit" class="btn btn-secondary" name="imdbID" value="<%= movie.imdbID %>">Add To Cart</button></form>
+        <form action="/details" method="get"><button type="submit" class="btn btn-secondary" name="imdbID" value="<%= movie.imdbID %>">Details</button></form>
     </div>
     <script>
         

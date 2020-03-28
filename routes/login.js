@@ -1,44 +1,33 @@
-// login.js (server side)
+const router = require('express').Router();
+const User = require('../model/User');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const {loginValidation} = require('../validation');
 
-var express = require('express');
-var router = express.Router();
 
-//router.use(express.static('../public'));
+// login
+router.post('/login', async (req, res) => {
+    // validation
+    const { error } = loginValidation(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
 
+    // checking for repeated emails
+    //const user = await User.findOne({email: req.body.email});
+    //if (!user) return res.status(400).send("Email or password is wrong");
 
-router.get('/', function(req, res) {
-    console.log("login GET");
-    res.render('login.ejs');
+    // check for repeated usernames
+    const username = await User.findOne({username: req.body.username});
+    if (!username) return res.status(400).send("Username or password is wrong");
+
+    // check if password is correct
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if(!validPassword) return res.status(400).send('Invalid password');
+
+    // token of the user
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    res.header('authentication-token', token).send(token);
+
+    //res.send('Login successful');
 });
-
-
-// here is where we can validate a user login, log them in if valid and return true
-// or don't log them in if invalid and return false
-function validate_login(username, password){
-    return Math.floor(Math.random() * 2) == 0;
-}
-/*
-ditch the login/attempt route, make the get /login serve the login page,
-and make the post login handle the login functionality
-
-make get /createaccount serve the create account page
-make post /createaccount handle the actual create account
-
-you'll need another router for the createaccount page
-
-
-*/
-router.post('/', function(req, res) {
-    console.log("login POST");
-    var username = req.body.username;
-    var password = req.body.password;
-    
-    console.log(username);
-    console.log(password);
-    res.json(
-        { success:validate_login(username, password) }
-    );
-});
-
 
 module.exports = router;
